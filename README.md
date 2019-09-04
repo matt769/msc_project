@@ -1,4 +1,5 @@
-Code dump
+### Code dump
+This should be updated to something a little more comprehensive in the next couple of days.
 
 Need to run cmake/make in each of the subfolders except Microcontroller which contains Arduino/Teensyduino code files.  
 FullRobot should be done last.  
@@ -28,3 +29,6 @@ Microcontroller code dependencies (see report for links):
 * PWMServo
 * PID_v1
 * Rotation (files provided, but need to be placed in stardard Arduino library location)
+
+Other
+* May need to modify include path in Robot.ino to point to communication/commPackages.h
