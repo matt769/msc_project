@@ -34,11 +34,9 @@ Other
 
 ### Supporting materials
 See the Supporting_materials folder for:  
-- Instructions to run robot *TO ADD*
 - Odroid setup instructions
-- Robot build notes *TO ADD*
-- Robot schematic *TO ADD*
-- Circuit diagram *TO ADD*
+- Robot build notes
+- Robot development state notes *TO ADD*
 - 3D/2D design files
 
 
@@ -49,3 +47,34 @@ See this link https://www.dropbox.com/sh/bz3t7idnc23njo4/AABDjr6x9dCKdW70Yl40RJT
 
 See this link https://github.com/matt769/2017-10_Transmitter_v2 for:
 - Transmitter code
+
+
+### To run
+ More details on the connections are available in `build notes.pdf` if required. This is just a quick summary.
+
+#### Using Odroid as the main computer
+ * Connect Odroid and camera
+ * Connect the switches and battery connectors
+ * Turn them both on (Odroid circuit can be left off if just radio controlling the vehicle)
+ * Connect to Odroid via ethernet cable
+ * Open SSH session: IP 169.254.130.11, Username: odroid, Password: odroid
+ * Run:
+   * $ cd ~/ws/project/FullRobot
+   * $ ./full ../../ORB_SLAM2_PRJ/Vocabulary/ORBvoc.txt PGchameleon_lowres.yaml n
+
+#### Using an external computer
+ * Connect external computer and camera
+ * Connect the switch for the low level circuitry only (i.e. not the Odroid)
+ * Turn it on
+ * On the external computer, assuming it has the same folder structure as the Odroid (but easy to modify if not), run:
+   * $ cd ~/ws/project/FullRobot
+   * $ ./full ../../ORB_SLAM2_PRJ/Vocabulary/ORBvoc.txt PGchameleon_lowres.yaml y
+
+
+#### Notes
+The program `full` takes 3 parameters.
+1. Path to Bag of Words Vocabulary file
+2. Path to ORB SLAM config file (including camera intrinsic parameters) 
+3. Visualisation indicator - `y` will launch the standard ORB SLAM windows to view the camera feed and map/localisation information, `n` will suppress then
+
+In the above running instructions I have assumed visualisation disabled when using Odroid, and enabled when using an external computer.
